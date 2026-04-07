@@ -15,13 +15,7 @@ limit = st.number_input("Limit Results", value=10)
 if st.button("Search Archive"):
     # Build API URL
     # CDX API documentation: https://support.archive-it.org/hc/en-us/articles/360001231286
-    base_url = f"https://wayback.archive-it.org/{collection_id}/timemap/cdx"
-    params = {
-        "url": url_to_search,
-        "fl": "timestamp,original",
-        "output": "json",
-        "limit": limit
-    }
+    base_url = f"https://www.archive-it.org/collections/{collection_id}/"
 
     with st.spinner('Fetching archives...'):
         try:
