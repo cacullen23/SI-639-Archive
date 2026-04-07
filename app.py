@@ -31,7 +31,7 @@ if st.button("Search Archive"):
             df['link'] = df['timestamp'].apply(lambda x: f"http://wayback.archive-it.org/{collection_id}/{x}/{url_to_search}")
             
             st.success("Found captures!")
-            st.markdown(df)
+            st.markdown(data)
             # Display results
             for _, row in df.iterrows():
                 st.markdown(f"- {row['date']}: [{row['link']}]({row['link']})")
