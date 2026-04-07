@@ -15,7 +15,7 @@ limit = st.number_input("Limit Results", value=10)
 if st.button("Search Archive"):
     # Build API URL
     # CDX API documentation: https://support.archive-it.org/hc/en-us/articles/360001231286
-    base_url = f"http://wayback.archive-it.org/{collection_id}/timemap/cdx"
+    base_url = f"https://wayback.archive-it.org/{collection_id}/timemap/cdx"
     params = {
         "url": url_to_search,
         "fl": "timestamp,original",
