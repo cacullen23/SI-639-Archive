@@ -19,7 +19,7 @@ if st.button("Search Archive"):
 
     with st.spinner('Fetching archives...'):
         try:
-            response = httpx.get(base_url, params=params)
+            response = httpx.get(base_url)
             response.raise_for_status()
             
             # Parse CDX data (JSON lines format)
