@@ -8,8 +8,8 @@ st.set_page_config(page_title="Archive-It Search", layout="wide")
 st.title('U-M Music-Performance Group Web Archive')
 
 # Input fields
-collection_id = st.text_input("Archive-It Collection ID", value="3813")
-url_to_search = st.text_input("URL to Search", value="http://www.allsaintsprinceton.org/")
+collection_id = "31146"
+url_to_search = ""
 limit = st.number_input("Limit Results", value=10)
 
 if st.button("Search Archive"):
