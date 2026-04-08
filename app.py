@@ -30,6 +30,7 @@ if st.button("Search Archive"):
             if not data or len(data) <= 1:
                 st.warning("No captures found for that URL.")
             else:
+                st.write(data)
                 headers = data[0]
                 rows = data[1:]
                 df = pd.DataFrame(rows, columns=headers)
