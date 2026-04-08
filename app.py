@@ -15,8 +15,7 @@ limit = st.number_input("Limit Results", value=10)
 if st.button("Search Archive"):
     # Build API URL
     # CDX API documentation: https://support.archive-it.org/hc/en-us/articles/360001231286
-    base_url = f"https://www.archive-it.org/collections/{collection_id}/"
-    base_url = f"http://wayback.archive-it.org/{collection_id}/timemap/cdx?url=archive-it.org"
+    base_url = f"https://wayback.archive-it.org/{collection_id}/timemap/cdx?url=archive-it.org"
 
     with st.spinner('Fetching archives...'):
         try:
@@ -32,13 +31,11 @@ if st.button("Search Archive"):
             df['link'] = df['timestamp'].apply(lambda x: f"http://wayback.archive-it.org/{collection_id}/{x}/{url_to_search}")
 
             st.success("Found captures!")
-
+            st.markdown(df)
+            st.markdown(data)
             # Display results
             for _, row in df.iterrows():
                 st.markdown(f"- {row['date']}: [{row['link']}]({row['link']})")
-
-        except Exception as e:
-            st.error(f"Error fetching data: {e}")
 
         except Exception as e:
             st.error(f"Error fetching data: {e}")
