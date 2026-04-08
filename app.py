@@ -10,7 +10,7 @@ st.title('U-M Music-Performance Group Web Archive')
 # Input fields
 collection_id = "31146"
 url_to_search = ""
-limit = st.number_input("Limit Results", value=10)
+# limit = st.number_input("Limit Results", value=10)
 
 if st.button("Search Archive"):
     # Build API URL
@@ -21,7 +21,8 @@ if st.button("Search Archive"):
         try:
             response = httpx.get(base_url)
             response.raise_for_status()
-
+            st.markdown(response.text)
+            
             # Parse CDX data (JSON lines format)
             data = [line.split() for line in response.text.strip().split('\n') if line]
             df = pd.DataFrame(data, columns=['timestamp', 'original_url'])
